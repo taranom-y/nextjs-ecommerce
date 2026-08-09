@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Product } from '@/types/productType';
+import StarRating from './StartRating';
 
 type ProductCardProps = {
   product: Product;
@@ -19,6 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <h5 className='font-bold line-clamp-1 md:text-lg md:mt-2 md:line-clamp-2'>
         {product.title}
       </h5>
+      <StarRating rating={product.rating} />
 
       <div className='flex flex-col justify-center md:flex-row md:justify-between md:mt-2 '>
         <p className='text-amber-900 text-lg font-medium mb-2'>
