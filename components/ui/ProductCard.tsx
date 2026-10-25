@@ -1,38 +1,39 @@
 import Image from 'next/image';
-import { Product } from '@/types/productType';
-import StarRating from './StartRating';
+import type { Product } from '@/types/productType';
+import StarRating from './StarRating';
 
 type ProductCardProps = {
   product: Product;
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const discountAmount = product.price * (product.discountPercentage / 100);
+
+  const discountedPrice = product.price - discountAmount;
   return (
-    <div className='flex flex-col p-6 mb-8 border-b-gray-400 rounded-2xl shadow-xs bg-gray-100'>
-      <Image
-        className='mb-1 rounded-2xl bg-stone-300 '
-        src={product.thumbnail}
-        width={500}
-        height={500}
-        alt={product.title}
-      />
+    <div
+      className='flex flex-col p-6 border-b border-gray-400
+     rounded-2xl shadow-stone-500 shadow-xs bg-gray-100'
+    >
+      <div className='relative aspect-square overflow-hidden rounded-2xl bg-stone-300'>
+        <Image
+          src={product.thumbnail}
+          alt={product.title}
+          fill
+          sizes='(max-width: 768px) 100vw, 50vw'
+          className='object-cover'
+        />
+      </div>
 
-      <h5 className='font-bold line-clamp-1 md:text-lg md:mt-2 md:line-clamp-2'>
-        {product.title}
-      </h5>
+      <h3 className='font-bold text-lg my-4 line-clamp-1'>{product.title}</h3>
       <StarRating rating={product.rating} />
-
-      <div className='flex flex-col justify-center md:flex-row md:justify-between md:mt-2 '>
-        <p className='text-amber-900 text-lg font-medium mb-2'>
-          ${product.price}
-        </p>
-
-        <button
-          className='bg-black hover:bg-gray-800 text-white font-light
-         rounded-full py-1 px-3  md:py-2 md:px-4 '
-        >
-          Add to cart
-        </button>
+      <div className='flex justify-between text-lg font-medium mt-3'>
+        <p>${product.price}</p>
+        <p className='text-amber-800 '>- %{product.discountPercentage}</p>
+      </div>
+      <div className='flex justify-between rounded-full bg-red-100 text-red-900 px-2 mt-2'>
+        <p>${discountedPrice.toFixed(2)}</p>
+        <p>${discountAmount.toFixed(2)} OFF</p>
       </div>
     </div>
   );
