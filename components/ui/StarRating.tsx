@@ -4,16 +4,14 @@ type StarRatingProps = {
 
 export default function StarRating({ rating }: StarRatingProps) {
   return (
-    <div className='flex items-center'>
-      <div className='flex items-center space-x-1'>
+    <div className='flex items-center mt-2'>
+      <div className='flex items-center gap-1'>
         {[1, 2, 3, 4, 5].map((star) => (
           <svg
             key={star}
-            className={`w-6 h-7 ${star <= Math.round(rating) ? 'text-yellow-300' : 'text-white'} `}
+            className={` w-4 h-5 md:w-6 md:h-7 ${star <= Math.round(rating) ? 'text-yellow-400' : 'text-gray-300'} `}
             aria-hidden='true'
             xmlns='http://www.w3.org/2000/svg'
-            width='24'
-            height='24'
             fill='currentColor'
             viewBox='0 0 24 24'
           >
@@ -21,7 +19,7 @@ export default function StarRating({ rating }: StarRatingProps) {
           </svg>
         ))}
       </div>
-      <p className='ms-2 text-sm font-medium text-body'>{rating} out of 5</p>
+      <p className='ms-2 text-xs md:text-sm '>{rating} out of 5</p>
     </div>
   );
 }
