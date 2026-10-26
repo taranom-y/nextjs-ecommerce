@@ -1,19 +1,18 @@
-import Header from '@/components/layout/Header';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import './style.css';
 import HeroSection from '@/components/layout/HeroSection';
 import Brands from '@/components/ui/Brands';
-import { Hydration } from '@/providers/Hydration';
+import { ProductHydration } from '@/providers/ProductHydration';
 import ProductList from '@/components/layout/ProductList';
+import ReviewsSection from '@/components/layout/Reviews';
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
-    <div>
+    <>
       <HeroSection />
-      <Brands />
-      <Hydration>
+      <ProductHydration>
+        <Brands />
         <ProductList />
-      </Hydration>
-    </div>
+        <ReviewsSection />
+      </ProductHydration>
+    </>
   );
 }
