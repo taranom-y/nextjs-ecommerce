@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VELORA
+
+**VELORA** is a modern, responsive clothing e-commerce website built with Next.js, TypeScript, and Tailwind CSS. It provides a user-friendly shopping experience for exploring clothing products and brands.
+
+## Features
+
+- **Responsive Design:** A responsive interface designed for desktop and mobile devices.
+- **Hero Section:** An engaging homepage section introducing the store.
+- **Product Listings:** Browse clothing products fetched from the DummyJSON API.
+- **Brand Browsing:** Explore brands dynamically based on available product data.
+- **Brand-Specific Products:** View products associated with a selected brand.
+- **Product Ratings:** Display product ratings using star icons.
+- **Customer Reviews:** Browse customer reviews in a carousel.
+- **Product Search:** Search for products by title, category, or brand.
+- **Shopping Cart:** Add products to the cart and manage item quantities.
+- **Global State Management:** Manage cart state using Zustand.
+- **Data Fetching and Caching:** Use TanStack Query to fetch and cache product data.
+
+## Technologies
+
+- **Next.js** — React framework for building web applications.
+- **React** — Component-based user interface development.
+- **TypeScript** — Static typing for more reliable code.
+- **Tailwind CSS** — Utility-first CSS framework for styling.
+- **TanStack Query (React Query)** — Data fetching, caching, and server-state management.
+- **Zustand** — Lightweight state management.
+- **Font Awesome** — Icons for the user interface.
+- **DummyJSON API** — Sample product data.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run VELORA locally.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/taranom-y/nextjs-ecommerce.git
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd nextjs-ecommerce
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Product Data
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+VELORA uses the [DummyJSON API](https://dummyjson.com/) to retrieve sample product data.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application filters the available products to display clothing-related categories.
 
-## Learn More
+Because the project uses sample API data, the available products, brands, ratings, and reviews depend on the API response.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Goals
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is part of my journey in front-end development. Through VELORA, I am practicing:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Building reusable React components.
+- Developing responsive layouts with Tailwind CSS.
+- Managing server state with TanStack Query.
+- Managing application state with Zustand.
+- Working with APIs and asynchronous JavaScript.
+- Organizing a Next.js application using TypeScript.
+- Using Git and GitHub for version control and feature-based development.
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: [@taranom-y](https://github.com/taranom-y)
