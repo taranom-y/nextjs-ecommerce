@@ -1,21 +1,33 @@
+'use client';
+import { GetProducts } from '@/lib/api/GetProducts';
+import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 
 export default function Brands() {
+  const { data: products = [] } = useQuery({
+    queryKey: ['products'],
+    queryFn: GetProducts,
+  });
+  const brandsUnique = [
+    ...new Set(
+      products
+        .filter((product) => product.brand)
+        .map((product) => product.brand),
+    ),
+  ];
+
   return (
-    <div
+    <section
       id='brands'
-      className='bg-black text-white flex flex-wrap justify-center 
-      gap-4 w-full p-4 cursor-pointer text-4xl md:gap-12'
+      className='flex flex-wrap justify-center
+       bg-black text-white gap-8 w-full p-4 xl:p-8
+       text-2xl xl:text-4xl xl:gap-12'
     >
-      <Link href='/'>VERSACE</Link>
-
-      <Link href='/'>ZARA</Link>
-
-      <Link href='/'>GUCCI</Link>
-
-      <Link href='/'>PRADA</Link>
-
-      <Link href='/'>Calvin Klein</Link>
-    </div>
+      {brandsUnique.map((brand) => (
+        <Link key={brand} href={`/brands/${encodeURIComponent(brand)}`}>
+          {brand}
+        </Link>
+      ))}
+    </section>
   );
 }
